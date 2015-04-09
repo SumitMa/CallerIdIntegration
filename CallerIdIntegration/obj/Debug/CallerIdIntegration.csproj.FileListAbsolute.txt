@@ -40,7 +40,6 @@ C:\Users\chetnan\Desktop\vidya code\CallerIdIntegration\obj\Debug\CallerIdIntegr
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\bin\Debug\CallerIdIntegration.exe.config
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\bin\Debug\CallerIdIntegration.exe
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\bin\Debug\CallerIdIntegration.pdb
-D:\DayUser\Chetna\vidya code\CallerIdIntegration\obj\Debug\CallerIdIntegration.csprojResolveAssemblyReference.cache
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\obj\Debug\MainWindow.baml
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\obj\Debug\PreviousTripDetails.baml
 D:\DayUser\Chetna\vidya code\CallerIdIntegration\obj\Debug\Style\Style.baml

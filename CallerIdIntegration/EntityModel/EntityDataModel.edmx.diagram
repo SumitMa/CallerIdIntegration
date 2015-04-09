@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cedacd51c5544c81974dc3aeb7044211" Name="Diagram1" ZoomLevel="52">
+      <Diagram DiagramId="cedacd51c5544c81974dc3aeb7044211" Name="Diagram1" ZoomLevel="50">
         <EntityTypeShape EntityType="PCApp_TaxitechModel.cab" Width="1.5" PointX="8.5680136906765476" PointY="31.998612642287561" />
         <EntityTypeShape EntityType="PCApp_TaxitechModel.call" Width="1.5" PointX="2.7472432026393911" PointY="12.494719704843462" />
         <EntityTypeShape EntityType="PCApp_TaxitechModel.caller_data" Width="1.5" PointX="2.63553522091151" PointY="27.211576027428535" />

@@ -1,6 +1,7 @@
 ﻿using CallerIdIntegration.Common;
 using CallerIdIntegration.EntityModel;
 using CallerIdIntegration.UserControl;
+using CID_Parser;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2580,188 +2581,203 @@ namespace CallerIdIntegration
                 // Get UDP received message from event
                 string receivedMessage = UdpReceiverClass.ReceivedMessage;
 
-                // Remove header
-                string rawData = receivedMessage.Substring(21, receivedMessage.Length - 21);
-                int index = rawData.IndexOf(" ");
+                CallRecord currentRecord = new CallRecord(receivedMessage);
+                MyLine = currentRecord.Line.ToString("00");
+                MyType = string.IsNullOrEmpty(currentRecord.IOType) ? currentRecord.DetailType : currentRecord.IOType;
+                string st = currentRecord.CallTime.ToShortTimeString();
+                MyDate = currentRecord.CallTime.Month.ToString("00") + "/" + currentRecord.CallTime.Day.ToString("00");
+                MyTime = st.Split()[0] + st.Split()[1]; //currentRecord.CallTime.Hour + ":" + currentRecord.CallTime.Minute;
+                MyCheckSum = currentRecord.Checksum;
+                MyRings = currentRecord.Ring;
+                MyDuration = currentRecord.Duration.ToString("0000");
+                MyIndicator = currentRecord.SEType;
+                MyNumber = currentRecord.Phone;
+                MyName = currentRecord.Name;
+                string callerIDName = currentRecord.Name;
 
-                //---- EXTRACTING INDIVIDUAL FIELDS FROM CALL RECORDS -------                   
 
-                // Deluxe units are capable of sending both Start and End Records on Incoming and Outgoing calls
-                // Deluxe units can also send detail records such as Ring, On-Hook and Off Hook.
-                // This section extracts data from fields and places it into varibles
-                // The code allows for all types of call records that can be sent.  			
-                // 
-                // Note: Basic unit units only send Start Records on Incoming Calls.
+                //// Remove header
+                //string rawData = receivedMessage.Substring(21, receivedMessage.Length - 21);
+                //int index = rawData.IndexOf(" ");
+
+                ////---- EXTRACTING INDIVIDUAL FIELDS FROM CALL RECORDS -------                   
+
+                //// Deluxe units are capable of sending both Start and End Records on Incoming and Outgoing calls
+                //// Deluxe units can also send detail records such as Ring, On-Hook and Off Hook.
+                //// This section extracts data from fields and places it into varibles
+                //// The code allows for all types of call records that can be sent.  			
+                //// 
+                //// Note: Basic unit units only send Start Records on Incoming Calls.
 
 
-                // Get Line number from string
-                MyLine = rawData.Substring(0, index);
+                //// Get Line number from string
+                //MyLine = rawData.Substring(0, index);
 
-                // Update Raw data
-                rawData = rawData.Substring(index, rawData.Length - index);
-                index = rawData.IndexOf(" ");
+                //// Update Raw data
+                //rawData = rawData.Substring(index, rawData.Length - index);
+                //index = rawData.IndexOf(" ");
 
-                while (rawData.IndexOf(" ") == 0)
-                {
-                    rawData = rawData.Substring(1, rawData.Length - 1);
-                }
+                //while (rawData.IndexOf(" ") == 0)
+                //{
+                //    rawData = rawData.Substring(1, rawData.Length - 1);
+                //}
 
-                // Get type from string.  
-                // For Deluxe units, the Data type can be either [I]nbound, [O]utbound, [R]ing, o[N]-hook, of[F]-hook
-                // For Basic units, the only Data type will be "I".
+                //// Get type from string.  
+                //// For Deluxe units, the Data type can be either [I]nbound, [O]utbound, [R]ing, o[N]-hook, of[F]-hook
+                //// For Basic units, the only Data type will be "I".
 
-                index = rawData.IndexOf(" ");
-                MyType = rawData.Substring(0, index);
+                //index = rawData.IndexOf(" ");
+                //MyType = rawData.Substring(0, index);
 
-                // Update Raw data
-                rawData = rawData.Substring(index, rawData.Length - index);
-                index = rawData.IndexOf(" ");
+                //// Update Raw data
+                //rawData = rawData.Substring(index, rawData.Length - index);
+                //index = rawData.IndexOf(" ");
 
-                while (rawData.IndexOf(" ") == 0)
-                {
-                    rawData = rawData.Substring(1, rawData.Length - 1);
-                }
+                //while (rawData.IndexOf(" ") == 0)
+                //{
+                //    rawData = rawData.Substring(1, rawData.Length - 1);
+                //}
 
-                // Check whether the record is a Incoming/Outgoing.  If not, it is a detail record
-                // which needs to be processed diffrently below.
-                if (MyType == "I" || MyType == "O")
-                {
+                //// Check whether the record is a Incoming/Outgoing.  If not, it is a detail record
+                //// which needs to be processed diffrently below.
+                //if (MyType == "I" || MyType == "O")
+                //{
 
-                    // Get start or end indicator
-                    index = rawData.IndexOf(" ");
-                    MyIndicator = rawData.Substring(0, index);
+                //    // Get start or end indicator
+                //    index = rawData.IndexOf(" ");
+                //    MyIndicator = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get duration from string
-                    index = rawData.IndexOf(" ");
-                    MyDuration = rawData.Substring(0, index);
+                //    // Get duration from string
+                //    index = rawData.IndexOf(" ");
+                //    MyDuration = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get checksum from string
-                    index = rawData.IndexOf(" ");
-                    MyCheckSum = rawData.Substring(0, index);
+                //    // Get checksum from string
+                //    index = rawData.IndexOf(" ");
+                //    MyCheckSum = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get rings from string
-                    index = rawData.IndexOf(" ");
-                    MyRings = rawData.Substring(0, index);
+                //    // Get rings from string
+                //    index = rawData.IndexOf(" ");
+                //    MyRings = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get date from string
-                    index = rawData.IndexOf(" ");
-                    MyDate = rawData.Substring(0, index);
+                //    // Get date from string
+                //    index = rawData.IndexOf(" ");
+                //    MyDate = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get time from string
-                    index = rawData.IndexOf(" ");
-                    MyTime = rawData.Substring(0, index);
+                //    // Get time from string
+                //    index = rawData.IndexOf(" ");
+                //    MyTime = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get am/pm from string
-                    index = rawData.IndexOf(" ");
-                    MyTime += rawData.Substring(0, index);
+                //    // Get am/pm from string
+                //    index = rawData.IndexOf(" ");
+                //    MyTime += rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get number from string
-                    index = rawData.IndexOf(" ");
-                    MyNumber = rawData.Substring(0, index);
+                //    // Get number from string
+                //    index = rawData.IndexOf(" ");
+                //    MyNumber = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get name from string
-                    MyName = rawData;
+                //    // Get name from string
+                //    MyName = rawData;
 
-                }
-                //----------------EXTRACT DATA FROM ON-HOOK, OFF-HOOK, AND RING DATA TYPES-----------
-                else if (MyType == "N" || MyType == "F" || MyType == "R")
-                {
-                    // Get date from string
-                    index = rawData.IndexOf(" ");
-                    MyDate = rawData.Substring(0, index);
+                //}
+                ////----------------EXTRACT DATA FROM ON-HOOK, OFF-HOOK, AND RING DATA TYPES-----------
+                //else if (MyType == "N" || MyType == "F" || MyType == "R")
+                //{
+                //    // Get date from string
+                //    index = rawData.IndexOf(" ");
+                //    MyDate = rawData.Substring(0, index);
 
-                    // Update Raw data
-                    rawData = rawData.Substring(index, rawData.Length - index);
-                    index = rawData.IndexOf(" ");
+                //    // Update Raw data
+                //    rawData = rawData.Substring(index, rawData.Length - index);
+                //    index = rawData.IndexOf(" ");
 
-                    while (rawData.IndexOf(" ") == 0)
-                    {
-                        rawData = rawData.Substring(1, rawData.Length - 1);
-                    }
+                //    while (rawData.IndexOf(" ") == 0)
+                //    {
+                //        rawData = rawData.Substring(1, rawData.Length - 1);
+                //    }
 
-                    // Get time from string (in case we need the time from these real-time events)
-                    if ((rawData.IndexOf(" ")) == -1)
-                    {
-                        MyTime = rawData;
-                    }
-                    else
-                    {
-                        MyTime = rawData.Substring(0, index);
-                    }
+                //    // Get time from string (in case we need the time from these real-time events)
+                //    if ((rawData.IndexOf(" ")) == -1)
+                //    {
+                //        MyTime = rawData;
+                //    }
+                //    else
+                //    {
+                //        MyTime = rawData.Substring(0, index);
+                //    }
 
-                }
+                //}
             }
             catch (Exception ex)
             {

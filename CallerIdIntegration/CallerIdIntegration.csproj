@@ -57,6 +57,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CID_Parser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CID_Parser.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\ExampleApplication_Csharp\ExampleApplication_Csharp\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
