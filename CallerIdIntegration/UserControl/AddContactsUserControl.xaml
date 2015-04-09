@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="CallerIdIntegration.UserControl.AddContactsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            Height="300" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"  HorizontalAlignment="Left" Margin="20,10,0,0" Text="Add Contacts" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".02*"></RowDefinition>
+                <RowDefinition Height=".02*"></RowDefinition>
+                <RowDefinition Height=".05*"></RowDefinition>
+            </Grid.RowDefinitions>         
+            <Border Grid.Row="0" Style="{StaticResource BCTextBoxBorder}"  HorizontalAlignment="Left"   Width="450" x:Name="BorderCustomerName">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Customer Name" VerticalAlignment="Top" FontSize="15" Foreground="#0D6D93" Margin="8,8,8,0"></TextBlock>
+                    <TextBox Name="TextBoxCustomerName"   Grid.Column="1" VerticalAlignment="Center"  FontSize="15" Width="250" BorderThickness="0" Background="#FAFAFA"   MaxLength="50" TabIndex="1" Margin="5,6">
+                      
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource BCTextBoxBorder}"  HorizontalAlignment="Left"  Width="450" x:Name="BorderPhoneNumber">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Phone Number" VerticalAlignment="Top" FontSize="15" Foreground="#0D6D93" Margin="8,8,8,0"></TextBlock>
+                    <TextBox Name="TextBoxPhoneNumber"   Grid.Column="1" VerticalAlignment="Center"  FontSize="15" Width="250" BorderThickness="0" Background="#FAFAFA"   MaxLength="15" TabIndex="2" Margin="5,6">
+                      
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2"  VerticalAlignment="Top" Margin="0,20,0,0" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="ButtonSave" Height="30" Width="120" Content="Save" Style="{DynamicResource BlueButton}" HorizontalAlignment="Stretch" Click="ButtonSave_Click"  ></Button>
+
+
+                </Grid>
+            </Border>
+
+
+            <Border Grid.Row="2" VerticalAlignment="Top" Margin="0,20,0,0" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="ButtonReset" Height="30" Width="120" Content="Clear" Style="{DynamicResource BlueButton}" HorizontalAlignment="Stretch" Margin="260,0,0,0" Click="ButtonReset_Click" ></Button>
+
+
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" VerticalAlignment="Top" Margin="10,20,0,0" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="TextBlockMessage"  FontSize="14" Foreground="Red" HorizontalAlignment="Left" />
+
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>

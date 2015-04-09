@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TexiTripModelStoreContainer" CdmEntityContainer="TexiTripEntities">
+    <EntitySetMapping Name="cabs">
+      <EntityTypeMapping TypeName="TexiTripModel.cab">
+        <MappingFragment StoreEntitySet="cabs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="cab_name" ColumnName="cab_name" />
+          <ScalarProperty Name="price_per_unit" ColumnName="price_per_unit" />
+          <ScalarProperty Name="original_price" ColumnName="original_price" />
+          <ScalarProperty Name="available_seats" ColumnName="available_seats" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="TexiTripModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactsTemps">
+      <EntityTypeMapping TypeName="TexiTripModel.contactsTemp">
+        <MappingFragment StoreEntitySet="contactsTemp">
+          <ScalarProperty Name="TempContactId" ColumnName="TempContactId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="TexiTripModel.device">
+        <MappingFragment StoreEntitySet="devices">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="device_unique_code" ColumnName="device-unique_code" />
+          <ScalarProperty Name="android_id" ColumnName="android_id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="assignment" ColumnName="assignment" />
+          <ScalarProperty Name="is_login" ColumnName="is_login" />
+          <ScalarProperty Name="on_trip" ColumnName="on_trip" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="send_notification" ColumnName="send_notification" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="send_push" ColumnName="send_push" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispacher_fares">
+      <EntityTypeMapping TypeName="TexiTripModel.dispacher_fares">
+        <MappingFragment StoreEntitySet="dispacher_fares">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="fare_id" ColumnName="fare_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispacher_trips">
+      <EntityTypeMapping TypeName="TexiTripModel.dispacher_trips">
+        <MappingFragment StoreEntitySet="dispacher_trips">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="trip_unique_id" ColumnName="trip_unique_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispachers">
+      <EntityTypeMapping TypeName="TexiTripModel.dispacher">
+        <MappingFragment StoreEntitySet="dispachers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="business_name" ColumnName="business_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="other_state" ColumnName="other_state" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+          <ScalarProperty Name="send_trip_option" ColumnName="send_trip_option" />
+          <ScalarProperty Name="set_notification" ColumnName="set_notification" />
+          <ScalarProperty Name="notification_time_in_min" ColumnName="notification_time_in_min" />
+          <ScalarProperty Name="default_car_no" ColumnName="default_car_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="TexiTripModel.driver">
+        <MappingFragment StoreEntitySet="drivers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="license_number" ColumnName="license_number" />
+          <ScalarProperty Name="routing_no" ColumnName="routing_no" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="vat_number" ColumnName="vat_number" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="account_no" ColumnName="account_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notification_logs">
+      <EntityTypeMapping TypeName="TexiTripModel.notification_logs">
+        <MappingFragment StoreEntitySet="notification_logs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="android_id" ColumnName="android_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="trip_accepted_status" ColumnName="trip_accepted_status" />
+          <ScalarProperty Name="trip_accepted_time" ColumnName="trip_accepted_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="triplogs">
+      <EntityTypeMapping TypeName="TexiTripModel.triplog">
+        <MappingFragment StoreEntitySet="triplogs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="session_id" ColumnName="session_id" />
+          <ScalarProperty Name="pickup_address" ColumnName="pickup_address" />
+          <ScalarProperty Name="pickup_date" ColumnName="pickup_date" />
+          <ScalarProperty Name="pickup_time" ColumnName="pickup_time" />
+          <ScalarProperty Name="dropoff_address" ColumnName="dropoff_address" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="amt_of_passengers" ColumnName="amt_of_passengers" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="tozone_id" ColumnName="tozone_id" />
+          <ScalarProperty Name="miles" ColumnName="miles" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="pickup_timing" ColumnName="pickup_timing" />
+          <ScalarProperty Name="dropoff_timing" ColumnName="dropoff_timing" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+          <ScalarProperty Name="ccard_no" ColumnName="ccard_no" />
+          <ScalarProperty Name="ccard_expirydate" ColumnName="ccard_expirydate" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="total_paid_amount" ColumnName="total_paid_amount" />
+          <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
+          <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
+          <ScalarProperty Name="account_no" ColumnName="account_no" />
+          <ScalarProperty Name="voucher_no" ColumnName="voucher_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trips">
+      <EntityTypeMapping TypeName="TexiTripModel.trip">
+        <MappingFragment StoreEntitySet="trips">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="from_zone_id" ColumnName="from_zone_id" />
+          <ScalarProperty Name="to_zone_id" ColumnName="to_zone_id" />
+          <ScalarProperty Name="miles" ColumnName="miles" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="pickup_timing" ColumnName="pickup_timing" />
+          <ScalarProperty Name="drop_timing" ColumnName="drop_timing" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="url_sends">
+      <EntityTypeMapping TypeName="TexiTripModel.url_sends">
+        <MappingFragment StoreEntitySet="url_sends">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IO" ColumnName="IO" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="RingType" ColumnName="RingType" />
+          <ScalarProperty Name="RingNumber" ColumnName="RingNumber" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CallStatus" ColumnName="CallStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicles">
+      <EntityTypeMapping TypeName="TexiTripModel.vehicle">
+        <MappingFragment StoreEntitySet="vehicles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dipatcher_id" ColumnName="dipatcher_id" />
+          <ScalarProperty Name="cab_id" ColumnName="cab_id" />
+          <ScalarProperty Name="vehicle_unique_id" ColumnName="vehicle_unique_id" />
+          <ScalarProperty Name="vehicle_name" ColumnName="vehicle_name" />
+          <ScalarProperty Name="vehicle_number" ColumnName="vehicle_number" />
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="assignment" ColumnName="assignment" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calls">
+      <EntityTypeMapping TypeName="TexiTripModel.call">
+        <MappingFragment StoreEntitySet="call">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Rings" ColumnName="Rings" />
+          <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CallId" ColumnName="CallId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Function_USP_UpdateCalls" FunctionName="TexiTripModel.Store.USP_UpdateCalls" />
+  </EntityContainerMapping>
+</Mapping>

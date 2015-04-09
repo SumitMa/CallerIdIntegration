@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TexiTripModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TexiTripEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="cabs" EntityType="TexiTripModel.cab" />
+    <EntitySet Name="contacts" EntityType="TexiTripModel.contact" />
+    <EntitySet Name="contactsTemps" EntityType="TexiTripModel.contactsTemp" />
+    <EntitySet Name="devices" EntityType="TexiTripModel.device" />
+    <EntitySet Name="dispacher_fares" EntityType="TexiTripModel.dispacher_fares" />
+    <EntitySet Name="dispacher_trips" EntityType="TexiTripModel.dispacher_trips" />
+    <EntitySet Name="dispachers" EntityType="TexiTripModel.dispacher" />
+    <EntitySet Name="drivers" EntityType="TexiTripModel.driver" />
+    <EntitySet Name="notification_logs" EntityType="TexiTripModel.notification_logs" />
+    <EntitySet Name="triplogs" EntityType="TexiTripModel.triplog" />
+    <EntitySet Name="trips" EntityType="TexiTripModel.trip" />
+    <EntitySet Name="url_sends" EntityType="TexiTripModel.url_sends" />
+    <EntitySet Name="vehicles" EntityType="TexiTripModel.vehicle" />
+    <EntitySet Name="calls" EntityType="TexiTripModel.call" />
+    <FunctionImport Name="Function_USP_UpdateCalls">
+      <Parameter Name="MyDuration" Mode="In" Type="String" />
+      <Parameter Name="MyRings" Mode="In" Type="String" />
+      <Parameter Name="MyIndicator" Mode="In" Type="String" />
+      <Parameter Name="MyName" Mode="In" Type="String" />
+      <Parameter Name="SMyLine" Mode="In" Type="String" />
+      <Parameter Name="SMyTime" Mode="In" Type="String" />
+      <Parameter Name="SMyDate" Mode="In" Type="String" />
+      <Parameter Name="SMyNumber" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="cab">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="dispacher_id" Type="Int32" />
+    <Property Name="cab_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="price_per_unit" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="original_price" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="available_seats" Type="Int32" />
+    <Property Name="status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="contactsTemp">
+    <Key>
+      <PropertyRef Name="TempContactId" />
+    </Key>
+    <Property Name="TempContactId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="device_unique_code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="android_id" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+    <Property Name="dispacher_id" Type="Int32" />
+    <Property Name="vehicle_id" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="remarks" Type="String" MaxLength="120" Unicode="false" FixedLength="false" />
+    <Property Name="assignment" Type="Int32" />
+    <Property Name="is_login" Type="Int32" />
+    <Property Name="on_trip" Type="Int32" />
+    <Property Name="lat" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="lng" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="send_notification" Type="Int32" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="send_push" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dispacher_fares">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="trip_id" Type="Int32" />
+    <Property Name="dispatcher_id" Type="Int32" />
+    <Property Name="fare_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dispacher_trips">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="trip_id" Type="Int32" />
+    <Property Name="dispatcher_id" Type="Int32" />
+    <Property Name="trip_unique_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dispacher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="parent_id" Type="Int32" />
+    <Property Name="role_id" Type="Int32" />
+    <Property Name="business_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="first_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="user_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="address1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="address2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="state_id" Type="Int32" />
+    <Property Name="other_state" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="country_id" Type="Int32" />
+    <Property Name="phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="zip_code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="contact_phone" Type="Int64" />
+    <Property Name="send_trip_option" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="set_notification" Type="Int32" />
+    <Property Name="notification_time_in_min" Type="Int32" />
+    <Property Name="default_car_no" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="driver">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="dispatcher_id" Type="Int32" />
+    <Property Name="unique_code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="license_number" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="routing_no" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="vat_number" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="first_name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="last_name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="contact_number" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="account_no" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="notification_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="device_id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="trip_id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="android_id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="trip_accepted_status" Type="Int32" />
+    <Property Name="trip_accepted_time" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="triplog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="device_id" Type="Int32" />
+    <Property Name="dispacher_id" Type="Int32" />
+    <Property Name="session_id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="pickup_address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="pickup_date" Type="DateTime" Precision="3" />
+    <Property Name="pickup_time" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="dropoff_address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="car_no" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="telephone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="amt_of_passengers" Type="Int32" />
+    <Property Name="price" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="details" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="tozone_id" Type="Int32" />
+    <Property Name="miles" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="amount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="pickup_timing" Type="Time" Precision="7" />
+    <Property Name="dropoff_timing" Type="DateTime" Precision="3" />
+    <Property Name="source" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="destination" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="payment_method" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ccard_no" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ccard_expirydate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cvv" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="total_paid_amount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="pickup_lat" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="pickup_lng" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="account_no" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="voucher_no" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="trip">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="from_zone_id" Type="Int32" />
+    <Property Name="to_zone_id" Type="Int32" />
+    <Property Name="miles" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="amount" Type="Decimal" Precision="12" Scale="3" />
+    <Property Name="pickup_timing" Type="DateTime" Precision="3" />
+    <Property Name="drop_timing" Type="DateTime" Precision="3" />
+    <Property Name="source" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="destination" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="url_sends">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="IO" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Line" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="SE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Duration" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="RingType" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="RingNumber" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Time" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="CallStatus" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Company" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vehicle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="dipatcher_id" Type="Int32" />
+    <Property Name="cab_id" Type="Int32" />
+    <Property Name="vehicle_unique_id" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vehicle_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vehicle_number" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="driver_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="assignment" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="call">
+    <Key>
+      <PropertyRef Name="CallId" />
+    </Key>
+    <Property Type="Int64" Name="CallId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Date" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Time" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Line" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Indicator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Duration" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Checksum" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Rings" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

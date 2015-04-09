@@ -1,0 +1,12 @@
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\bin\Release\CallerIdIntegration.exe.config
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\MainWindow.baml
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\Style\Style.baml
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\UserControl\AddContactsUserControl.baml
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\App.baml
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\MainWindow.g.cs
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\UserControl\AddContactsUserControl.g.cs
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\App.g.cs
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\CallerIdIntegration_MarkupCompile.cache
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\CallerIdIntegration.g.resources
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\CallerIdIntegration.Properties.Resources.resources
+D:\Night User\VidyaVikas\Projects\TexiTech\CallerIdIntegration\obj\Release\CallerIdIntegration.csproj.GenerateResource.Cache

@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PCApp_TaxitechModelStoreContainer" CdmEntityContainer="PCApp_TaxitechEntities">
+    <FunctionImportMapping FunctionImportName="uspGetTripLogInformation" FunctionName="PCApp_TaxitechModel.Store.uspGetTripLogInformation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PCApp_TaxitechModel.uspGetTripLogInformation_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="PickUpAddress" ColumnName="PickUpAddress" />
+          <ScalarProperty Name="PickUpDate" ColumnName="PickUpDate" />
+          <ScalarProperty Name="PickUpTime" ColumnName="PickUpTime" />
+          <ScalarProperty Name="DropoffAddress" ColumnName="DropoffAddress" />
+          <ScalarProperty Name="VoucherNumber" ColumnName="VoucherNumber" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="TelephoneLine" ColumnName="TelephoneLine" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ReservationStatus" ColumnName="ReservationStatus" />
+          <ScalarProperty Name="AmountOfPassengers" ColumnName="AmountOfPassengers" />
+          <ScalarProperty Name="UuTripId" ColumnName="UuTripId" />
+          <ScalarProperty Name="WebTripLogId" ColumnName="WebTripLogId" />
+          <ScalarProperty Name="CurrentTime" ColumnName="CurrentTime" />
+          <ScalarProperty Name="CcardNo" ColumnName="CcardNo" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="DriverAcceptedTime" ColumnName="DriverAcceptedTime" />
+          <ScalarProperty Name="fare_count" ColumnName="fare_count" />
+          <ScalarProperty Name="DispatcherTripStatus" ColumnName="DispatcherTripStatus" />
+          <ScalarProperty Name="DispatcherTripReservationStatus" ColumnName="DispatcherTripReservationStatus" />
+          <ScalarProperty Name="DirectNotificationTime" ColumnName="DirectNotificationTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSearchCompletedTrips" FunctionName="PCApp_TaxitechModel.Store.uspSearchCompletedTrips">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PCApp_TaxitechModel.uspSearchCompletedTrips_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="PickUpAddress" ColumnName="PickUpAddress" />
+          <ScalarProperty Name="PickUpDate" ColumnName="PickUpDate" />
+          <ScalarProperty Name="PickUpTime" ColumnName="PickUpTime" />
+          <ScalarProperty Name="DropoffAddress" ColumnName="DropoffAddress" />
+          <ScalarProperty Name="VoucherNumber" ColumnName="VoucherNumber" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="TelephoneLine" ColumnName="TelephoneLine" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ReservationStatus" ColumnName="ReservationStatus" />
+          <ScalarProperty Name="AmountOfPassengers" ColumnName="AmountOfPassengers" />
+          <ScalarProperty Name="UuTripId" ColumnName="UuTripId" />
+          <ScalarProperty Name="WebTripLogId" ColumnName="WebTripLogId" />
+          <ScalarProperty Name="CurrentTime" ColumnName="CurrentTime" />
+          <ScalarProperty Name="CcardNo" ColumnName="CcardNo" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="DriverAcceptedTime" ColumnName="DriverAcceptedTime" />
+          <ScalarProperty Name="fare_count" ColumnName="fare_count" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspSearchReservationTrips" FunctionName="PCApp_TaxitechModel.Store.uspSearchReservationTrips">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PCApp_TaxitechModel.uspSearchReservationTrips_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DispatcherId" ColumnName="DispatcherId" />
+          <ScalarProperty Name="PickUpAddress" ColumnName="PickUpAddress" />
+          <ScalarProperty Name="PickUpDate" ColumnName="PickUpDate" />
+          <ScalarProperty Name="PickUpTime" ColumnName="PickUpTime" />
+          <ScalarProperty Name="DropoffAddress" ColumnName="DropoffAddress" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="WebTripLogID" ColumnName="WebTripLogID" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="AmtOfPassengers" ColumnName="AmtOfPassengers" />
+          <ScalarProperty Name="DirectNotificationTime" ColumnName="DirectNotificationTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="cabs">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.cab">
+        <MappingFragment StoreEntitySet="cabs">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="available_seats" ColumnName="available_seats" />
+          <ScalarProperty Name="original_price" ColumnName="original_price" />
+          <ScalarProperty Name="price_per_unit" ColumnName="price_per_unit" />
+          <ScalarProperty Name="cab_name" ColumnName="cab_name" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calls">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.call">
+        <MappingFragment StoreEntitySet="call">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Rings" ColumnName="Rings" />
+          <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CallId" ColumnName="CallId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="caller_data">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.caller_data">
+        <MappingFragment StoreEntitySet="caller_data">
+          <ScalarProperty Name="LocalTripId" ColumnName="LocalTripId" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="dropoff_address" ColumnName="dropoff_address" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="pickup_address" ColumnName="pickup_address" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.device">
+        <MappingFragment StoreEntitySet="devices">
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="send_push" ColumnName="send_push" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="send_notification" ColumnName="send_notification" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="on_trip" ColumnName="on_trip" />
+          <ScalarProperty Name="is_login" ColumnName="is_login" />
+          <ScalarProperty Name="assignment" ColumnName="assignment" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="android_id" ColumnName="android_id" />
+          <ScalarProperty Name="device_unique_code" ColumnName="device-unique_code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispacher_fares">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.dispacher_fares">
+        <MappingFragment StoreEntitySet="dispacher_fares">
+          <ScalarProperty Name="fare_id" ColumnName="fare_id" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispacher_trips">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.dispacher_trips">
+        <MappingFragment StoreEntitySet="dispacher_trips">
+          <ScalarProperty Name="trip_unique_id" ColumnName="trip_unique_id" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dispachers">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.dispacher">
+        <MappingFragment StoreEntitySet="dispachers">
+          <ScalarProperty Name="default_car_no" ColumnName="default_car_no" />
+          <ScalarProperty Name="notification_time_in_min" ColumnName="notification_time_in_min" />
+          <ScalarProperty Name="set_notification" ColumnName="set_notification" />
+          <ScalarProperty Name="send_trip_option" ColumnName="send_trip_option" />
+          <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="other_state" ColumnName="other_state" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="business_name" ColumnName="business_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.driver">
+        <MappingFragment StoreEntitySet="drivers">
+          <ScalarProperty Name="account_no" ColumnName="account_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="vat_number" ColumnName="vat_number" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="routing_no" ColumnName="routing_no" />
+          <ScalarProperty Name="license_number" ColumnName="license_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="unique_code" ColumnName="unique_code" />
+          <ScalarProperty Name="dispatcher_id" ColumnName="dispatcher_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notification_logs">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.notification_logs">
+        <MappingFragment StoreEntitySet="notification_logs">
+          <ScalarProperty Name="trip_accepted_time" ColumnName="trip_accepted_time" />
+          <ScalarProperty Name="trip_accepted_status" ColumnName="trip_accepted_status" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="android_id" ColumnName="android_id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservations">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.reservation">
+        <MappingFragment StoreEntitySet="reservations">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="IsAdded" ColumnName="IsAdded" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="AmtOfPassengers" ColumnName="AmtOfPassengers" />
+          <ScalarProperty Name="DispatcherId" ColumnName="DispatcherId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="SendOrder" ColumnName="SendOrder" />
+          <ScalarProperty Name="NotificationDateTime" ColumnName="NotificationDateTime" />
+          <ScalarProperty Name="DirectNotificationTime" ColumnName="DirectNotificationTime" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="dropoff_address" ColumnName="dropoff_address" />
+          <ScalarProperty Name="pickup_time" ColumnName="pickup_time" />
+          <ScalarProperty Name="pickup_date" ColumnName="pickup_date" />
+          <ScalarProperty Name="pickup_address" ColumnName="pickup_address" />
+          <ScalarProperty Name="DispatcherTripIsReservation" ColumnName="DispatcherTripIsReservation" />
+          <ScalarProperty Name="DispatcherTripStatus" ColumnName="DispatcherTripStatus" />
+          <ScalarProperty Name="DispatcherTripWebId" ColumnName="DispatcherTripWebId" />
+          <ScalarProperty Name="WebTripLogID" ColumnName="WebTripLogID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="triplogs">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.triplog">
+        <MappingFragment StoreEntitySet="triplogs">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="AssignedDispacherId" ColumnName="AssignedDispacherId" />
+          <ScalarProperty Name="TripCreated" ColumnName="TripCreated" />
+          <ScalarProperty Name="DirectNotificationTime" ColumnName="DirectNotificationTime" />
+          <ScalarProperty Name="DispatcherTripReservationStatus" ColumnName="DispatcherTripReservationStatus" />
+          <ScalarProperty Name="DispatcherTripStatus" ColumnName="DispatcherTripStatus" />
+          <ScalarProperty Name="AcceptedTime" ColumnName="AcceptedTime" />
+          <ScalarProperty Name="TelephoneLine" ColumnName="TelephoneLine" />
+          <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+          <ScalarProperty Name="CC_cardnumber" ColumnName="CC_cardnumber" />
+          <ScalarProperty Name="reservation_status" ColumnName="reservation_status" />
+          <ScalarProperty Name="uu_tripId" ColumnName="uu_tripId" />
+          <ScalarProperty Name="IsSentToDatabase" ColumnName="IsSentToDatabase" />
+          <ScalarProperty Name="IsAutoCompleted" ColumnName="IsAutoCompleted" />
+          <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+          <ScalarProperty Name="WebTripLogID" ColumnName="WebTripLogID" />
+          <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+          <ScalarProperty Name="ActualPickUpAddress" ColumnName="ActualPickUpAddress" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="fare_count" ColumnName="fare_count" />
+          <ScalarProperty Name="auto_complete" ColumnName="auto_complete" />
+          <ScalarProperty Name="C_trip_created_" ColumnName="[trip_created]" />
+          <ScalarProperty Name="voucher_no" ColumnName="voucher_no" />
+          <ScalarProperty Name="account_no" ColumnName="account_no" />
+          <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
+          <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
+          <ScalarProperty Name="total_paid_amount" ColumnName="total_paid_amount" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="ccard_expirydate" ColumnName="ccard_expirydate" />
+          <ScalarProperty Name="ccard_no" ColumnName="ccard_no" />
+          <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="dropoff_timing" ColumnName="dropoff_timing" />
+          <ScalarProperty Name="pickup_timing" ColumnName="pickup_timing" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="miles" ColumnName="miles" />
+          <ScalarProperty Name="tozone_id" ColumnName="tozone_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="amt_of_passengers" ColumnName="amt_of_passengers" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="car_no" ColumnName="car_no" />
+          <ScalarProperty Name="dropoff_address" ColumnName="dropoff_address" />
+          <ScalarProperty Name="pickup_time" ColumnName="pickup_time" />
+          <ScalarProperty Name="pickup_date" ColumnName="pickup_date" />
+          <ScalarProperty Name="pickup_address" ColumnName="pickup_address" />
+          <ScalarProperty Name="session_id" ColumnName="session_id" />
+          <ScalarProperty Name="dispacher_id" ColumnName="dispacher_id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trips">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.trip">
+        <MappingFragment StoreEntitySet="trips">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="drop_timing" ColumnName="drop_timing" />
+          <ScalarProperty Name="pickup_timing" ColumnName="pickup_timing" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="miles" ColumnName="miles" />
+          <ScalarProperty Name="to_zone_id" ColumnName="to_zone_id" />
+          <ScalarProperty Name="from_zone_id" ColumnName="from_zone_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="url_sends">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.url_sends">
+        <MappingFragment StoreEntitySet="url_sends">
+          <ScalarProperty Name="StartId" ColumnName="StartId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CallStatus" ColumnName="CallStatus" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="RingNumber" ColumnName="RingNumber" />
+          <ScalarProperty Name="RingType" ColumnName="RingType" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="IO" ColumnName="IO" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicles">
+      <EntityTypeMapping TypeName="PCApp_TaxitechModel.vehicle">
+        <MappingFragment StoreEntitySet="vehicles">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="assignment" ColumnName="assignment" />
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="vehicle_number" ColumnName="vehicle_number" />
+          <ScalarProperty Name="vehicle_name" ColumnName="vehicle_name" />
+          <ScalarProperty Name="vehicle_unique_id" ColumnName="vehicle_unique_id" />
+          <ScalarProperty Name="cab_id" ColumnName="cab_id" />
+          <ScalarProperty Name="dipatcher_id" ColumnName="dipatcher_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PCApp_TaxitechModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PCApp_TaxitechModelStoreContainer">
+    <EntitySet Name="cabs" EntityType="PCApp_TaxitechModel.Store.cabs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="call" EntityType="PCApp_TaxitechModel.Store.call" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="caller_data" EntityType="PCApp_TaxitechModel.Store.caller_data" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="contact" EntityType="PCApp_TaxitechModel.Store.contact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="devices" EntityType="PCApp_TaxitechModel.Store.devices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dispacher_fares" EntityType="PCApp_TaxitechModel.Store.dispacher_fares" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dispacher_trips" EntityType="PCApp_TaxitechModel.Store.dispacher_trips" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="dispachers" EntityType="PCApp_TaxitechModel.Store.dispachers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="drivers" EntityType="PCApp_TaxitechModel.Store.drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="notification_logs" EntityType="PCApp_TaxitechModel.Store.notification_logs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="reservations" EntityType="PCApp_TaxitechModel.Store.reservations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="triplogs" EntityType="PCApp_TaxitechModel.Store.triplogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="trips" EntityType="PCApp_TaxitechModel.Store.trips" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="url_sends" EntityType="PCApp_TaxitechModel.Store.url_sends" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vehicles" EntityType="PCApp_TaxitechModel.Store.vehicles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_caller_data_triplogs" Association="PCApp_TaxitechModel.Store.FK_caller_data_triplogs">
+      <End Role="triplogs" EntitySet="triplogs" />
+      <End Role="caller_data" EntitySet="caller_data" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cabs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="dispacher_id" Type="int" />
+    <Property Name="cab_name" Type="varchar" MaxLength="255" />
+    <Property Name="price_per_unit" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="original_price" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="available_seats" Type="int" />
+    <Property Name="status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="call">
+    <Key>
+      <PropertyRef Name="CallId" />
+    </Key>
+    <Property Name="CallId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="Time" Type="varchar" MaxLength="50" />
+    <Property Name="Line" Type="varchar" MaxLength="10" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Indicator" Type="varchar" MaxLength="50" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" />
+    <Property Name="Checksum" Type="varchar" MaxLength="50" />
+    <Property Name="Rings" Type="varchar" MaxLength="50" />
+    <Property Name="Number" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="caller_data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="dispacher_id" Type="int" />
+    <Property Name="pickup_address" Type="varchar" MaxLength="200" />
+    <Property Name="Line" Type="varchar" MaxLength="10" />
+    <Property Name="dropoff_address" Type="varchar" MaxLength="200" />
+    <Property Name="telephone" Type="varchar" MaxLength="20" />
+    <Property Name="LocalTripId" Type="int" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="devices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="device-unique_code" Type="varchar" MaxLength="50" />
+    <Property Name="android_id" Type="varchar" MaxLength="300" />
+    <Property Name="dispacher_id" Type="int" />
+    <Property Name="vehicle_id" Type="int" />
+    <Property Name="driver_id" Type="int" />
+    <Property Name="remarks" Type="varchar" MaxLength="120" />
+    <Property Name="assignment" Type="int" />
+    <Property Name="is_login" Type="int" />
+    <Property Name="on_trip" Type="int" />
+    <Property Name="lat" Type="varchar" MaxLength="20" />
+    <Property Name="lng" Type="varchar" MaxLength="20" />
+    <Property Name="send_notification" Type="int" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="send_push" Type="int" />
+    <Property Name="modified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="dispacher_fares">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="trip_id" Type="int" />
+    <Property Name="dispatcher_id" Type="int" />
+    <Property Name="fare_id" Type="int" />
+  </EntityType>
+  <EntityType Name="dispacher_trips">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="trip_id" Type="int" />
+    <Property Name="dispatcher_id" Type="int" />
+    <Property Name="trip_unique_id" Type="int" />
+  </EntityType>
+  <EntityType Name="dispachers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="business_name" Type="varchar" MaxLength="100" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="50" />
+    <Property Name="address2" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="25" />
+    <Property Name="state_id" Type="int" />
+    <Property Name="other_state" Type="varchar" MaxLength="100" />
+    <Property Name="country_id" Type="int" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="fax" Type="varchar" MaxLength="50" />
+    <Property Name="zip_code" Type="varchar" MaxLength="50" />
+    <Property Name="contact_phone" Type="bigint" />
+    <Property Name="send_trip_option" Type="varchar" MaxLength="20" />
+    <Property Name="set_notification" Type="int" />
+    <Property Name="notification_time_in_min" Type="int" />
+    <Property Name="default_car_no" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="drivers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="dispatcher_id" Type="int" />
+    <Property Name="unique_code" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="license_number" Type="varchar" MaxLength="200" />
+    <Property Name="routing_no" Type="varchar" MaxLength="50" />
+    <Property Name="shift" Type="varchar" MaxLength="200" />
+    <Property Name="vat_number" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="first_name" Type="varchar" MaxLength="200" />
+    <Property Name="last_name" Type="varchar" MaxLength="200" />
+    <Property Name="contact_number" Type="varchar" MaxLength="200" />
+    <Property Name="address" Type="varchar" MaxLength="200" />
+    <Property Name="account_no" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="notification_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="device_id" Type="varchar" MaxLength="50" />
+    <Property Name="trip_id" Type="varchar" MaxLength="50" />
+    <Property Name="android_id" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="trip_accepted_status" Type="varchar" MaxLength="10" />
+    <Property Name="trip_accepted_time" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="reservations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WebTripLogID" Type="int" />
+    <Property Name="DispatcherTripWebId" Type="int" />
+    <Property Name="DispatcherTripStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DispatcherTripIsReservation" Type="int" />
+    <Property Name="pickup_address" Type="varchar" MaxLength="200" />
+    <Property Name="pickup_date" Type="varchar" MaxLength="20" />
+    <Property Name="pickup_time" Type="varchar" MaxLength="50" />
+    <Property Name="dropoff_address" Type="varchar" MaxLength="200" />
+    <Property Name="car_no" Type="varchar" MaxLength="20" />
+    <Property Name="DirectNotificationTime" Type="varchar" MaxLength="20" />
+    <Property Name="NotificationDateTime" Type="varchar" MaxLength="120" />
+    <Property Name="SendOrder" Type="varchar" MaxLength="120" />
+    <Property Name="DeviceId" Type="varchar" MaxLength="20" />
+    <Property Name="Created" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="int" />
+    <Property Name="DispatcherId" Type="int" />
+    <Property Name="AmtOfPassengers" Type="int" />
+    <Property Name="Telephone" Type="varchar" MaxLength="50" />
+    <Property Name="Details" Type="varchar" MaxLength="200" />
+    <Property Name="Price" Type="varchar" MaxLength="50" />
+    <Property Name="VoucherNo" Type="varchar" MaxLength="50" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="50" />
+    <Property Name="IsAdded" Type="varchar" MaxLength="50" />
+    <Property Name="IsUpdated" Type="varchar" MaxLength="50" />
+    <Property Name="Guid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="triplogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="device_id" Type="int" />
+    <Property Name="dispacher_id" Type="int" />
+    <Property Name="session_id" Type="varchar" MaxLength="50" />
+    <Property Name="pickup_address" Type="varchar" MaxLength="200" />
+    <Property Name="pickup_date" Type="varchar" MaxLength="20" />
+    <Property Name="pickup_time" Type="varchar" MaxLength="50" />
+    <Property Name="dropoff_address" Type="varchar" MaxLength="200" />
+    <Property Name="car_no" Type="varchar" MaxLength="20" />
+    <Property Name="telephone" Type="varchar" MaxLength="20" />
+    <Property Name="amt_of_passengers" Type="int" />
+    <Property Name="price" Type="varchar" MaxLength="50" />
+    <Property Name="details" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="int" />
+    <Property Name="driver_id" Type="int" />
+    <Property Name="tozone_id" Type="int" />
+    <Property Name="miles" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="amount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="pickup_timing" Type="time" />
+    <Property Name="dropoff_timing" Type="datetime" />
+    <Property Name="source" Type="varchar" MaxLength="200" />
+    <Property Name="destination" Type="varchar" MaxLength="200" />
+    <Property Name="payment_method" Type="varchar" MaxLength="50" />
+    <Property Name="ccard_no" Type="varchar" MaxLength="50" />
+    <Property Name="ccard_expirydate" Type="varchar" MaxLength="50" />
+    <Property Name="cvv" Type="varchar" MaxLength="5" />
+    <Property Name="total_paid_amount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="pickup_lat" Type="varchar" MaxLength="50" />
+    <Property Name="pickup_lng" Type="varchar" MaxLength="50" />
+    <Property Name="account_no" Type="varchar" MaxLength="50" />
+    <Property Name="voucher_no" Type="varchar" MaxLength="50" />
+    <Property Name="[trip_created]" Type="varchar" MaxLength="20" />
+    <Property Name="auto_complete" Type="int" />
+    <Property Name="fare_count" Type="int" />
+    <Property Name="created" Type="varchar" MaxLength="50" />
+    <Property Name="ActualPickUpAddress" Type="varchar" MaxLength="250" />
+    <Property Name="IsUpdated" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WebTripLogID" Type="int" />
+    <Property Name="IsCancelled" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsAutoCompleted" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsSentToDatabase" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="uu_tripId" Type="varchar" MaxLength="100" />
+    <Property Name="reservation_status" Type="int" Nullable="false" />
+    <Property Name="CC_cardnumber" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessType" Type="varchar" MaxLength="50" />
+    <Property Name="TelephoneLine" Type="varchar" MaxLength="50" />
+    <Property Name="AcceptedTime" Type="varchar" MaxLength="50" />
+    <Property Name="DispatcherTripStatus" Type="int" />
+    <Property Name="DispatcherTripReservationStatus" Type="int" />
+    <Property Name="DirectNotificationTime" Type="varchar" MaxLength="50" />
+    <Property Name="TripCreated" Type="int" />
+    <Property Name="AssignedDispacherId" Type="int" />
+    <Property Name="Guid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="trips">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="driver_id" Type="int" />
+    <Property Name="from_zone_id" Type="int" />
+    <Property Name="to_zone_id" Type="int" />
+    <Property Name="miles" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="amount" Type="decimal" Precision="12" Scale="3" />
+    <Property Name="pickup_timing" Type="datetime" />
+    <Property Name="drop_timing" Type="datetime" />
+    <Property Name="source" Type="varchar" MaxLength="255" />
+    <Property Name="destination" Type="varchar" MaxLength="255" />
+    <Property Name="status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="url_sends">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IO" Type="varchar" MaxLength="255" />
+    <Property Name="Line" Type="varchar" MaxLength="255" />
+    <Property Name="SE" Type="varchar" MaxLength="255" />
+    <Property Name="Duration" Type="varchar" MaxLength="255" />
+    <Property Name="RingType" Type="varchar" MaxLength="255" />
+    <Property Name="RingNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Time" Type="varchar" MaxLength="255" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="CallStatus" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Company" Type="varchar" MaxLength="255" />
+    <Property Name="Date" Type="varchar" MaxLength="20" />
+    <Property Name="StartId" Type="int" />
+  </EntityType>
+  <EntityType Name="vehicles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="dipatcher_id" Type="int" />
+    <Property Name="cab_id" Type="int" />
+    <Property Name="vehicle_unique_id" Type="varchar" MaxLength="255" />
+    <Property Name="vehicle_name" Type="varchar" MaxLength="255" />
+    <Property Name="vehicle_number" Type="varchar" MaxLength="255" />
+    <Property Name="driver_name" Type="varchar" MaxLength="255" />
+    <Property Name="assignment" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_caller_data_triplogs">
+    <End Role="triplogs" Type="PCApp_TaxitechModel.Store.triplogs" Multiplicity="0..1" />
+    <End Role="caller_data" Type="PCApp_TaxitechModel.Store.caller_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="triplogs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="caller_data">
+        <PropertyRef Name="LocalTripId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="uspGetTripLogInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DispatcherID" Type="int" Mode="In" />
+    <Parameter Name="CurrentDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="uspSearchCompletedTrips" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="keyword" Type="varchar" Mode="In" />
+    <Parameter Name="Startdate" Type="varchar" Mode="In" />
+    <Parameter Name="Enddate" Type="varchar" Mode="In" />
+    <Parameter Name="Dispatcherid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSearchReservationTrips" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="keyword" Type="varchar" Mode="In" />
+    <Parameter Name="Dispatcherid" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

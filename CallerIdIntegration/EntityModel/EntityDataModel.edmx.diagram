@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cedacd51c5544c81974dc3aeb7044211" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.cab" Width="1.5" PointX="8.5680136906765476" PointY="31.998612642287561" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.call" Width="1.5" PointX="2.7472432026393911" PointY="12.494719704843462" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.caller_data" Width="1.5" PointX="2.63553522091151" PointY="27.211576027428535" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.contact" Width="1.5" PointX="5.1845807289632884" PointY="17.89056617854655" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.device" Width="1.5" PointX="1.3548015436878436" PointY="30.460305555937953" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.dispacher_fares" Width="1.5" PointX="1.6191926531583034" PointY="18.861382403812083" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.dispacher_trips" Width="1.5" PointX="11.532957432574108" PointY="9.904306014023863" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.dispacher" Width="1.5" PointX="8.330802070130968" PointY="31.986421480768556" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.driver" Width="1.5" PointX="11.496539203215642" PointY="15.776824332669762" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.notification_logs" Width="1.5" PointX="4.3285227475355024" PointY="7.9459089226768862" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.reservation" Width="1.5" PointX="3.4343226977783829" PointY="16.942092217943674" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.triplog" Width="1.5" PointX="1.1767428466941894" PointY="6.0582905737954613" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.trip" Width="1.5" PointX="10.650277040270286" PointY="9.2210142804407589" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.url_sends" Width="1.5" PointX="7.35963763639314" PointY="5.0751226269989846" />
+        <EntityTypeShape EntityType="PCApp_TaxitechModel.vehicle" Width="1.5" PointX="2.9082154123616477" PointY="27.310496864519312" />
+        <AssociationConnector Association="PCApp_TaxitechModel.FK_caller_data_triplogs" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
